@@ -1,7 +1,13 @@
-function MovieDetails() {
+import { useParams } from "react-router-dom";
+
+function MovieDetails({ movies }) {
+  const { movieId } = useParams();
+
+  const movieChoice = movies.find((el) => `${el.id}` === movieId);
   return (
-    <div className='comp purple'>
-      <h1>MovieDetails Component</h1>
+    <div className="comp purple">
+      <h1>{movieChoice.title}</h1>
+      <p>{movieChoice.description}</p>
     </div>
   );
 }
